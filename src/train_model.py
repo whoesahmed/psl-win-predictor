@@ -88,3 +88,5 @@ def main():
     print("\nSaved model.pkl and app_lookup.json")
 
 
+if __name__ == "__main__":
+    main()
