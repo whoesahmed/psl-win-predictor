@@ -3,7 +3,6 @@ Trains a match-outcome classifier on the real PSL_Match_Results.csv
 structure (2016-2020, no toss data) and saves the model + a lookup
 snapshot for the Streamlit app.
 """
-
 import json
 import pickle
 
@@ -32,7 +31,7 @@ def build_latest_stats(df):
 
 
 def main():
-    df, feature_cols = build_features("PSL_Match_Results.csv")
+    df, feature_cols = build_features("../data/PSL_Match_Results.csv")
 
     X = df[feature_cols]
     y = df["target"]
