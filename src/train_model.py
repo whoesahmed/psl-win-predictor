@@ -1,6 +1,6 @@
 """
 Trains a match-outcome classifier on the real PSL_Match_Results.csv
-structure (2016-2020, no toss data) and saves the model + a lookup
+structure (2016-2020, no toss data) and saves the model & a lookup
 snapshot for the Streamlit app.
 """
 import json
@@ -56,11 +56,11 @@ def main():
         acc = accuracy_score(y_test, preds)
         results[name] = (model, acc)
         print(f"\n{name} — accuracy: {acc:.3f}")
-        print(classification_report(y_test, preds, target_names=["Team2 wins", "Team1 wins"]))
+        print(classification_report(y_test, preds, target_names=["Team 2 wins", "Team 1 wins"]))
 
     best_name = max(results, key=lambda k: results[k][1])
     best_model, best_acc = results[best_name]
-    print(f"\nBest model: {best_name} ({best_acc:.3f} accuracy) — saving this one.")
+    print(f"\nBest model: {best_name} ({best_acc:.3f} accuracy), saving this one.")
 
     with open("model.pkl", "wb") as f:
         pickle.dump({"model": best_model, "feature_cols": feature_cols, "model_name": best_name}, f)
