@@ -25,14 +25,12 @@ def load_raw(path):
     df = pd.read_csv(path)
     df = df.rename(columns={v: k for k, v in COLUMN_MAP.items()})
 
-    # Build a real date from Year/Month/Day so we can sort chronologically
     df["date"] = pd.to_datetime(
         df["Year"].astype(str) + " " + df["Month"] + " " + df["Day"].astype(str),
         format="%Y %B %d",
         errors="coerce",
     )
 
-    # Drop matches with no decisive winner -- can't be a classification target
     before = len(df)
     df = df[~df["winner"].isin(UNDECIDED_RESULTS)].copy()
     dropped = before - len(df)
@@ -81,7 +79,7 @@ def add_head_to_head(df):
         total += 1
         h2h_lookup[key] = [wins, total]
 
-    df["h2h_team1_win_rate_raw"] = h2h_rate  # win rate for sorted_pair[0]
+    df["h2h_team1_win_rate_raw"] = h2h_rate 
     return df
 
 
