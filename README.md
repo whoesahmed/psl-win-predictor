@@ -1,10 +1,10 @@
 # PSL Win Predictor
 
-Predicts Pakistan Super League match winners using team form, head-to-head record, and venue history — built as a practical application of Python data analysis (NumPy, Pandas, Matplotlib, Seaborn) and machine learning (scikit-learn), wrapped in an interactive Streamlit app.
+Predicts Pakistan Super League match winners using team form, head-to-head record, and venue history, built as a practical application of Python data analysis (NumPy, Pandas, Matplotlib, Seaborn) and for probability machine learning (scikit-learn) is used, wrapped in an interactive Streamlit app.
 
 ## Overview
 
-Given two teams and a venue, the model predicts a likely winner and a confidence score, based entirely on historical match patterns — no external commentary, no assumptions beyond the data.
+Given two teams and a venue, the model predicts a likely winner and a confidence score, based entirely on historical match patterns, no external commentary, no assumptions beyond the data.
 
 ## Dataset
 
@@ -34,7 +34,7 @@ Two classifiers were trained and compared:
 | Logistic Regression | **60.7%** |
 | Decision Tree (max depth 4) | 32.1% |
 
-Logistic Regression was selected. With only 139 matches, the Decision Tree overfits the training data and generalizes poorly — the simpler model wins here, which is itself a useful finding: more model complexity isn't automatically better on a small dataset.
+Logistic Regression was selected. With only 139 matches, the Decision Tree overfits the training data and generalizes poorly, the simpler model wins here, which is itself a useful finding: more model complexity isn't automatically better on a small dataset.
 
 Test set size is ~28 matches, so treat the accuracy figure as directional rather than statistically precise.
 
@@ -63,7 +63,7 @@ cd psl-win-predictor
 pip install -r requirements.txt
 ```
 
-Download the dataset from Kaggle and place it at `data/PSL_Match_Results.csv` (not included in this repo — download it yourself).
+Download the dataset from Kaggle and place it at `data/PSL_Match_Results.csv` (not included in this repo, download it yourself).
 
 ## Usage
 
@@ -96,4 +96,4 @@ Python, Pandas, NumPy, Matplotlib, Seaborn, scikit-learn, Streamlit
 - Add player-level features (current squad strength) if reliable data becomes available.
 
 ---
-Feedback and pull requests welcome.
+Feedback and pull requests accepted:)
