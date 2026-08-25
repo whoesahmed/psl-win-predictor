@@ -151,8 +151,6 @@ CUSTOM_CSS = """
 """
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
-# Original bat-and-ball emblem (not the official PSL logo -- that's a
-# registered trademark and shouldn't be used in a personal project).
 EMBLEM_SVG = """
 <svg width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:8px;">
   <circle cx="17" cy="17" r="16" fill="none" stroke="#2c9c92" stroke-width="1.5"/>
@@ -167,7 +165,7 @@ st.markdown(
     f"""
     <div class="match-banner">
         <h1>{EMBLEM_SVG}PSL Win Predictor</h1>
-        <p>Pick your matchup and venue — get a data-driven prediction, PSL style.</p>
+        <p>Pick your matchup and venue, get a data-driven prediction, PSL style.</p>
     </div>
     """,
     unsafe_allow_html=True,
