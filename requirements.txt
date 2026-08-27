@@ -4,4 +4,4 @@ pandas
 scikit-learn
 seaborn
 streamlit
-jupyter
+jupyter notebook
