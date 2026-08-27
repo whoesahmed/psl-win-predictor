@@ -5,8 +5,7 @@ Matches the ACTUAL columns in PSL_Match_Results.csv:
     Team 1, Ground, Margin, Year, Quarter, Month, Day, Scorecard, Team 2, Winner
 
 Note: this dataset has no toss information, so toss-based features are
-not used here (an earlier version of this file assumed a toss_winner /
-toss_decision column that doesn't exist in this dataset -- removed).
+not used here.
 """
 
 import pandas as pd
@@ -35,7 +34,7 @@ def load_raw(path):
     df = df[~df["winner"].isin(UNDECIDED_RESULTS)].copy()
     dropped = before - len(df)
     if dropped:
-        print(f"Dropped {dropped} matches with no decisive result (no result / tied / abandoned).")
+        print(f"Dropped {dropped} matches with no decisive result.")
 
     df = df.dropna(subset=["team1", "team2", "winner"])
     df = df.sort_values("date").reset_index(drop=True)
@@ -112,8 +111,6 @@ def build_features(path):
 
     df["target"] = (df["winner"] == df["team1"]).astype(int)
 
-    # h2h_team1_win_rate_raw is relative to alphabetically-sorted team names;
-    # flip it so it's always "team1's win rate against team2" for THIS row
     def resolve_h2h(row):
         sorted_pair = sorted([row["team1"], row["team2"]])
         return row["h2h_team1_win_rate_raw"] if sorted_pair[0] == row["team1"] else 1 - row["h2h_team1_win_rate_raw"]
