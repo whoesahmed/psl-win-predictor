@@ -12,7 +12,7 @@ Given two teams and a venue, the model predicts a likely winner and a confidence
 
 **Honest limitations, stated upfront:**
 - This dataset does not include toss information.
-- It covers 2016–2020 only — it does not reflect current-season rosters, form, or teams.
+- It covers 2016–2020 only, it does not reflect current-season rosters, form, or teams.
 - No player injury, squad change, or weather data is available or used.
 
 Predictions should be read as a directional estimate from limited historical data, not a confident forecast of upcoming matches.
@@ -21,9 +21,9 @@ Predictions should be read as a directional estimate from limited historical dat
 
 Three features are engineered from match history, each using only data available *before* the match in question (no data leakage):
 
-- **Recent form** — each team's win rate over their last 5 matches
-- **Head-to-head win rate** — historical performance between the two specific teams
-- **Venue win rate** — each team's win rate at the selected ground
+- **Recent form**, each team's win rate over their last 5 matches
+- **Head-to-head win rate**, historical performance between the two specific teams
+- **Venue win rate**, each team's win rate at the selected ground
 
 ## Model
 
@@ -34,7 +34,7 @@ Two classifiers were trained and compared:
 | Logistic Regression | **60.7%** |
 | Decision Tree (max depth 4) | 32.1% |
 
-Logistic Regression was selected. With only 139 matches, the Decision Tree overfits the training data and generalizes poorly, the simpler model wins here, which is itself a useful finding: more model complexity isn't automatically better on a small dataset.
+Logistic Regression was selected. With 139 matches, the Decision Tree overfits the training data and generalizes poorly, the simpler model wins here, which is itself a useful finding: more model complexity isn't automatically better on a small dataset.
 
 Test set size is ~28 matches, so treat the accuracy figure as directional rather than statistically precise.
 
