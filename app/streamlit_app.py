@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-st.set_page_config(page_title="PSL Win Predictor", page_icon="🏏", layout="centered")
+st.set_page_config(page_title="PSL Win Predictor", layout="centered")
 
 # ---------- Real PSL franchise colors ----------
 TEAM_STYLE = {
@@ -165,7 +165,7 @@ st.markdown(
     f"""
     <div class="match-banner">
         <h1>{EMBLEM_SVG}PSL Win Predictor</h1>
-        <p>Pick your matchup and venue, get a data-driven prediction, PSL style.</p>
+        <p>Pick your matchup and venue, get a data-driven prediction.</p>
     </div>
     """,
     unsafe_allow_html=True,
@@ -314,7 +314,7 @@ with st.sidebar:
     )
 
 st.markdown(
-    '<div class="footer-note">Built with Python, scikit-learn & Streamlit'
+    '<div class="footer-note">Built with Python & Streamlit'
     '</div>',
     unsafe_allow_html=True,
 )
